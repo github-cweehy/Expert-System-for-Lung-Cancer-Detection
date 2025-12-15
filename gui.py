@@ -222,10 +222,9 @@ age_var = tk.StringVar(value="middle")
 age_frame = ttk.Frame(profile_frame)
 age_frame.grid(row=0, column=1, sticky="w")
 
-ttk.Radiobutton(age_frame, text="Young", variable=age_var, value="young").grid(row=0, column=0, padx=(0, 5))
-ttk.Radiobutton(age_frame, text="Middle", variable=age_var, value="middle").grid(row=0, column=1, padx=(0, 5))
-ttk.Radiobutton(age_frame, text="Old", variable=age_var, value="old").grid(row=0, column=2)
-
+ttk.Radiobutton(age_frame, text="Young (0-30)", variable=age_var, value="young").grid(row=0, column=0, padx=(0, 5))
+ttk.Radiobutton(age_frame, text="Middle (31-60)", variable=age_var, value="middle").grid(row=0, column=1, padx=(0, 5))
+ttk.Radiobutton(age_frame, text="Old (61+)", variable=age_var, value="old").grid(row=0, column=2)
 
 #  RISK FACTORS
 factors_frame = ttk.LabelFrame(main_frame, text="Risk Factors", padding=10)
