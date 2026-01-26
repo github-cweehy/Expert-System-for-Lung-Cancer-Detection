@@ -100,7 +100,7 @@ def generate_pdf_report(assessment, filepath: str):
     c.setFont("Helvetica", 10)
 
     # Simple line wrapping for explanation text
-    max_width = 80  # characters per line (rough)
+    max_width = 80 
     words = explanation.split()
     line = ""
     for w in words:
@@ -124,7 +124,7 @@ def generate_pdf_report(assessment, filepath: str):
         text = f"- {key.replace('-', ' ').title()}: {value}"
         c.drawString(60, y, text)
         y -= 14
-        if y < 50:  # new page if needed
+        if y < 50:
             c.showPage()
             y = height - 50
             c.setFont("Helvetica", 10)
@@ -169,7 +169,7 @@ def on_generate_report():
         messagebox.showerror("Error", f"Failed to generate report:\n{e}")
 
 
-#  MAIN WINDOW 
+# MAIN WINDOW 
 root = tk.Tk()
 root.title("Lung Disease Risk Expert System")
 
@@ -194,7 +194,7 @@ main_frame.columnconfigure(1, weight=1)
 
 
 
-#  HEADER
+# HEADER
 header_label = ttk.Label(
     main_frame,
     text="Lung Disease Risk Expert System",
@@ -210,7 +210,7 @@ subtitle_label = ttk.Label(
 subtitle_label.grid(row=1, column=0, columnspan=2, sticky="w", pady=(0, 10))
 
 
-#  PATIENT PROFILE (AGE)
+# PATIENT PROFILE (AGE)
 profile_frame = ttk.LabelFrame(main_frame, text="Patient Profile", padding=10)
 profile_frame.grid(row=2, column=0, sticky="nsew", padx=(0, 10), pady=(0, 10))
 profile_frame.columnconfigure(1, weight=1)
@@ -225,7 +225,7 @@ ttk.Radiobutton(age_frame, text="Young (0-30)", variable=age_var, value="young")
 ttk.Radiobutton(age_frame, text="Middle (31-60)", variable=age_var, value="middle").grid(row=0, column=1, padx=(0, 5))
 ttk.Radiobutton(age_frame, text="Old (61+)", variable=age_var, value="old").grid(row=0, column=2)
 
-#  RISK FACTORS
+# RISK FACTORS
 factors_frame = ttk.LabelFrame(main_frame, text="Risk Factors", padding=10)
 factors_frame.grid(row=3, column=0, sticky="nsew", padx=(0, 10), pady=(0, 10))
 for i in range(3):
@@ -257,7 +257,7 @@ add_yes_no("Family history of lung disease", family_var, 4)
 add_yes_no("Long-term illness", illness_var, 5)
 
 
-#  RESULT PANEL
+# RESULT PANEL
 result_frame = ttk.LabelFrame(main_frame, text="Assessment Result", padding=10)
 result_frame.grid(row=2, column=1, rowspan=2, sticky="nsew", pady=(0, 10))
 result_frame.columnconfigure(0, weight=1)
@@ -318,7 +318,7 @@ clear_button.grid(row=0, column=1, padx=(0, 5))
 btn_report = ttk.Button(button_frame, text="Generate PDF Report", command=on_generate_report)
 btn_report.grid(row=0, column=2, padx=(5, 0))
 
-#  STATUS BAR
+# STATUS BAR
 status_var = tk.StringVar(value="Ready")
 status_bar = ttk.Label(
     root,
